@@ -3,14 +3,11 @@ import re
 
 def get_symbols_strength(user_pass):
     strength=0
-    if re.search(r'^.*[A-Z]+.*$', user_pass):
-        strength += 1
-    if re.search(r'^.*[a-z]+.*$', user_pass):
-        strength += 2
-    if re.match(r'^.*[@#$%_]+.*$', user_pass):
-        strength += 2
-    if re.match(r'^.*[0-9]+.*$', user_pass):
-        strength += 2
+    symbols_list=[r'^.*[A-Z]+.*$', r'^.*[a-z]+.*$', r'^.*[@#$%_]+.*$', r'^.*[0-9]+.*$']
+    for symbols in symbols_list:
+        if re.search(symbols, user_pass):
+            strength+=1
+    print(strength)
     return strength
 
 
@@ -24,8 +21,8 @@ def get_len_strength(user_pass):
 def get_black_list_strength(user_pass):
     strength = 0
     black_list = ['qwerty', '123456', '123', 'password', 'pass','user']
-    strength+=11 if list(map(lambda black_pass : user_pass.count(black_pass), black_list)) else strength = 0
-    print(s)
+    strength -= 12 if list(map(lambda black_pass : user_pass.count(black_pass), black_list)) else strength
+    print(strength)
     return strength
 
 
