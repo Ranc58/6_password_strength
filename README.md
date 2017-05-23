@@ -1,6 +1,18 @@
 # Password Strength Calculator
 
-[TODO. There will be project description]
+This program check Your password for security strength.
+
+# Quick start
+
+Run password_strength.py
+
+Example of script launch on Linux, Python 3.5:
+
+```#!bash
+$ python3 password_strength.py
+Please enter password: <password>
+Your password has 4/10 balls of strength.
+```
 
 # Project Goals
 
