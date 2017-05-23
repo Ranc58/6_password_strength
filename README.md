@@ -14,6 +14,8 @@ Please enter password: <password>
 Your password has 4/10 balls of strength.
 ```
 
+Launching on Win is same
+
 # Project Goals
 
 The code is written for educational purposes. Training course for web-developers - [DEVMAN.org](https://devman.org)
