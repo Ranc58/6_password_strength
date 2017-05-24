@@ -3,8 +3,8 @@ import re
 
 def symbols_strength_check(user_pass):
     strength = 0
-    symbols_tuple = (r'^.*[A-Z]+.*$',
-                     r'^.*[a-z]+.*$',
+    symbols_tuple = (r'^.*[A-ZА-Я]+.*$',
+                     r'^.*[a-zа-я]+.*$',
                      r'^.*[@#$%_-]+.*$',
                      r'^.*[0-9]+.*$')
     for symbols in symbols_tuple:
@@ -30,8 +30,8 @@ def blacklist_strength_check(user_pass):
 
 
 def print_pass_strength_result(pass_strength_result):
-    print('Your password has %s/10 balls of strength.'
-          % (pass_strength_result))
+    print('Your password has {}/10 balls of strength.'
+          .format(pass_strength_result))
 
 
 if __name__ == '__main__':
