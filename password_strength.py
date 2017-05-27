@@ -52,6 +52,10 @@ def print_pass_strength_result(pass_strength_result):
 
 if __name__ == '__main__':
     user_pass = getpass.getpass('Please enter password: ')
-    with open('PassBlackList.txt') as blacklist:
-        blacklist_strength = blacklist_strength_check(user_pass, blacklist)
-    print_pass_strength_result(calculate_strength_result())
+    try:
+        with open('PassBlackList.txt') as blacklist:
+            blacklist_strength = blacklist_strength_check(user_pass, blacklist)
+    except FileNotFoundError:
+        print("'PassBlackList.txt' not found! Please check this file in program directory")
+    else:
+        print_pass_strength_result(calculate_strength_result())
