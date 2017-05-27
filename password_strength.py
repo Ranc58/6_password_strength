@@ -30,15 +30,7 @@ def blacklist_strength_check(user_pass, blacklist):
             return True
 
 
-def print_pass_strength_result(pass_strength_result):
-    print('Your password has {}/10 points of strength.'
-          .format(pass_strength_result))
-
-
-if __name__ == '__main__':
-    user_pass = getpass.getpass('Please enter password: ')
-    with open('PassBlackList.txt') as blacklist:
-        blacklist_strength = blacklist_strength_check(user_pass, blacklist)
+def calculate_strength_result():
     pass_strength_result = 0
     if words_strength_check(user_pass):
         pass_strength_result += 2
@@ -50,4 +42,16 @@ if __name__ == '__main__':
         pass_strength_result += 3
     if blacklist_strength:
         pass_strength_result -= 2
-    print_pass_strength_result(pass_strength_result)
+    return pass_strength_result
+
+
+def print_pass_strength_result(pass_strength_result):
+    print('Your password has {}/10 points of strength.'
+          .format(pass_strength_result))
+
+
+if __name__ == '__main__':
+    user_pass = getpass.getpass('Please enter password: ')
+    with open('PassBlackList.txt') as blacklist:
+        blacklist_strength = blacklist_strength_check(user_pass, blacklist)
+    print_pass_strength_result(calculate_strength_result())
